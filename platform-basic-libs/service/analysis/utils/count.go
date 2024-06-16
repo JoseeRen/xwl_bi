@@ -119,28 +119,28 @@ var CountTypMap = map[CountType]getCountCol{
 			return toString("count()")
 		}
 
-		return toString(fmt.Sprintf("count(%s)", col))
+		return toString(fmt.Sprintf("count(`%s`)", col))
 	},
 	AllSum: func(col string) string {
-		return toString(Round(NaN2Zero(fmt.Sprintf("sum(%s)", col))))
+		return toString(Round(NaN2Zero(fmt.Sprintf("sum(`%s`)", col))))
 	},
 	AvgCount: func(col string) string {
-		return toString(Round(NaN2Zero(fmt.Sprintf(" avg(%s) ", col))))
+		return toString(Round(NaN2Zero(fmt.Sprintf(" avg(`%s`) ", col))))
 	},
 	AvgSumByUser: func(col string) string {
-		return toString(Round(NaN2Zero(fmt.Sprintf("SUM(%s)/COUNT(DISTINCT xwl_distinct_id)", col))))
+		return toString(Round(NaN2Zero(fmt.Sprintf("SUM(`%s`)/COUNT(DISTINCT xwl_distinct_id)", col))))
 	},
 	MiddleCount: func(col string) string {
-		return toString(NaN2Zero(fmt.Sprintf("quantile(%s)", col)))
+		return toString(NaN2Zero(fmt.Sprintf("quantile(`%s`)", col)))
 	},
 	MaxCount: func(col string) string {
-		return toString(Round(NaN2Zero(fmt.Sprintf("max(%s)", col))))
+		return toString(Round(NaN2Zero(fmt.Sprintf("max(`%s`)", col))))
 	},
 	MinCount: func(col string) string {
-		return toString(Round(NaN2Zero(fmt.Sprintf("min(%s)", col))))
+		return toString(Round(NaN2Zero(fmt.Sprintf("min(`%s`)", col))))
 	},
 	DistincCount: func(col string) string {
-		return toString(Round(NaN2Zero(fmt.Sprintf("count(DISTINCT %s)", col))))
+		return toString(Round(NaN2Zero(fmt.Sprintf("count(DISTINCT `%s`)", col))))
 	},
 	AllCount:     allCount,
 	ClickUserNum: clickUserNum,
