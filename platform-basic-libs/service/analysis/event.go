@@ -332,7 +332,7 @@ func (this *Event) GetGroupDateSql() (groupSQL string, groupCol string) {
 	case ByHour:
 		return "  date_group ", " formatDateTime(xwl_part_date,'%Y年%m月%d日 %H点') as date_group "
 	case ByMinute:
-		return "  date_group ", " formatDateTime(xwl_part_date,'%Y年%m月%d日 %H点%M分') as date_group "
+		return "  date_group ", " formatDateTime(xwl_part_date,'%Y年%m月%d日 %H点%i分') as date_group "
 	case ByWeek:
 		return "  date_group ", " formatDateTime(xwl_part_date,'%Y年%m月 星期%u')  as date_group "
 	case Monthly:
